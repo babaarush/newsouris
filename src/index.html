@@ -166,53 +166,76 @@
             max-width: 600px;
             margin-top: auto;
         }
+
+        .button-wrapper {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+        }
+
+        #feedback-button {
+            padding: 15px;
+            display: none;
+        }
+
+        .page {
+            position: relative;
+        }
     </style>
     <script>
         var currentPage = 0;
         var pages;
-    
-        function showPage(index) {
+
+        function showPage(index)
+    {
             pages = document.getElementsByClassName('page');
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].style.display = 'none';
-                pages[i].style.animation = ''; // Reset animation
-            }
-            pages[index].style.display = 'block';
-            currentPage = index;
-    
-            // Show/hide credits based on the current page
-            var credits = document.getElementById('credits');
-            if (currentPage === 0) {
-                credits.style.display = 'block';
-            } else {
-                credits.style.display = 'none';
-            }
+        for (var i = 0; i < pages.length; i++) {
+        pages[i].style.display = 'none';
+        pages[i].style.animation = ''; // Reset animation
+    }
+        pages[index].style.display = 'block';
+        currentPage = index;
+
+                // Show/hide credits based on the current page
+                var credits = document.getElementById('credits');
+        if (currentPage === 0) {
+            credits.style.display = 'block';
+        } else {
+            credits.style.display = 'none';
         }
-    
-        function nextPage() {
-            if (currentPage < pages.length - 1) {
-                pages[currentPage].style.animation = 'fadeOutToLeft 1s forwards';
-                setTimeout(function () {
-                    showPage(currentPage + 1);
-                }, 800);
-            }
+
+        // Show/hide feedback button based on the current page
+        var feedbackButton = document.getElementById('feedback-button');
+        if (currentPage === pages.length - 1) {
+            feedbackButton.style.display = 'block';
+        } else {
+            feedbackButton.style.display = 'none';
         }
-    
-        function previousPage() {
-            if (currentPage > 0) {
-                pages[currentPage].style.animation = 'fadeOutToLeft 1s forwards';
-                setTimeout(function () {
-                    showPage(currentPage - 1);
-                }, 800);
-            }
+    }
+
+    function nextPage() {
+        if (currentPage < pages.length - 1) {
+            pages[currentPage].style.animation = 'fadeOutToLeft 1s forwards';
+            setTimeout(function () {
+                showPage(currentPage + 1);
+            }, 800);
         }
-    
-        window.onload = function() {
-            showPage(0);
-        };
-    </script>
-    
-    
+    }
+
+    function previousPage() {
+        if (currentPage > 0) {
+            pages[currentPage].style.animation = 'fadeOutToLeft 1s forwards';
+            setTimeout(function () {
+                showPage(currentPage - 1);
+            }, 800);
+        }
+    }
+
+    window.onload = function() {
+        showPage(0);
+    };
+</script>
 </head>
 <body>
     <div class="page introduction">
@@ -220,9 +243,7 @@
             Welcome To The Land of New Souris
         </div>
         <img src="./assets/_Blue Red Modern City Life Desktop Wallpaper.png" alt="Image Description" style="max-width: 350px; margin-top: 100px; margin-left:100px;">
-    </div>
-
-    <div class="page">
+    </div><div class="page">
         <div class="question">
             The Physical Location of New Souris
         </div>
@@ -232,8 +253,7 @@
         <img class="image-left" src="./assets/urbanization-1999179-1685488.webp" alt="Left Image">
         <img class="image-right" src="./assets/oslo norway.jpg" alt="Right Image">
     </div>
-     
- 
+    
     <div class="page">
         <div class="question">
             How Will New Souris Be Sustainable?
@@ -244,7 +264,7 @@
         <img class="image-left" src="./assets/waste mangement.png" alt="Left Image">
         <img class="image-right" src="./assets/public transit.webp" alt="Right Image">
     </div>
-
+    
     <div class="page">
         <div class="question">
             Persuading Potential Buyers To Invest in New Souris
@@ -252,10 +272,10 @@
         <div style="font-size:25px;"class="answer" contenteditable="true">
             The future is here in New Souris. It has everything from entertainment to vegetation to industrialization. Although living expenses in Norway are high, New Souris has the potential to be a game-changer by promoting local food production and resources. This project can be more than simply a city; it can demonstrate why local goods are preferable than imports. Anywhere in the world, housing is very important. Unlike Norway, where housing costs are very high, New Souris will provide and enhance affordable homes.
         </div>
-        <img class="image-left" src="city.png!sw800" alt="Left Image"> <!--figure out the source picture for this-->
+        <img class="image-left" src="./assets/city.jpg" alt="Left Image">
         <img class="image-right" src="./assets/money.jpg" alt="Right Image">
     </div>
-
+    
     <div class="page">
         <div class="question">
             Tourist Sites/Attractions in New Souris
@@ -265,7 +285,7 @@
         </div>
         <img style="height: 200x;" class="image-left" src="./assets/palace.png" alt="Noble Palace Image">
     </div>
-
+    
     <div class="page">
         <div class="question">
             Thanks for visiting New Souris!
@@ -276,17 +296,23 @@
         <img style="height: 200x;" class="image-left" src="./assets/the end.gif" alt="Noble Palace Image">
     </div>
 
+    <div class="button-wrapper">
+        <a href="https://docs.google.com/forms/d/15Jkjm_a5enGoTHVLYiP4rIft1l45gcbytBUURCLPe1Q/edit" style= "text-decoration: none;">
+            <button id="feedback-button" style="background-color: mediumaquamarine;">Give Feedback</button>
+        </a>        
+    </div>
+
+    
     <div class="button-container">
         <button style="margin-bottom:150px; padding:15px;" onclick="previousPage()">Previous</button>
         <button style="margin-bottom: 150px; padding:15px;" onclick="nextPage()">Next</button>
     </div>
-
+    
     <div style="font-size: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="bottom-right" id="credits">
         By: Muaaz, Aarush, Saeed and Ibrahim
     </div>
     
-</body>
-</html>
+
 
 
 
