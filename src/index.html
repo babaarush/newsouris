@@ -228,6 +228,14 @@
             } else {
                 feedbackButton.style.display = 'none';
             }
+
+            // Show/hide next button based on the current page
+            var nextButton = document.getElementById('next-button');
+            if (currentPage === pages.length - 1) {
+                nextButton.style.display = 'none';
+            } else {
+                nextButton.style.display = 'inline-block';
+            }
         }
 
         function nextPage() {
@@ -326,7 +334,7 @@
     
     <div class="button-container">
         <button style="margin-bottom:150px; padding:15px;" onclick="previousPage()">Previous</button>
-        <button style="margin-bottom: 150px; padding:15px;" onclick="nextPage()">Next</button>
+        <button id="next-button" style="margin-bottom: 150px; padding:15px;" onclick="nextPage()">Next</button>
     </div>
     
     <div style="font-size: 20px; font-family: system-ui, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="bottom-right" id="credits">
