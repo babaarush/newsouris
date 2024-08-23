@@ -196,6 +196,11 @@
             background-color: #3e8e41;
         }
 
+        
+        .feedback-link {
+            text-decoration: none;
+        }
+
         .page {
             position: relative;
         }
@@ -208,12 +213,12 @@
             pages = document.getElementsByClassName('page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].style.display = 'none';
-                pages[i].style.animation = ''; // Reset animation
+                pages[i].style.animation = ''; 
             }
             pages[index].style.display = 'block';
             currentPage = index;
 
-            // Show/hide credits based on the current page
+            
             var credits = document.getElementById('credits');
             if (currentPage === 0) {
                 credits.style.display = 'block';
@@ -229,7 +234,7 @@
                 feedbackButton.style.display = 'none';
             }
 
-            // Show/hide next button based on the current page
+            
             var nextButton = document.getElementById('next-button');
             if (currentPage === pages.length - 1) {
                 nextButton.style.display = 'none';
@@ -323,7 +328,9 @@
     </div>
 
     <div class="button-wrapper">
-        <button id="feedback-button">Provide Feedback</button>
+        <a href="https://docs.google.com/forms/d/15Jkjm_a5enGoTHVLYiP4rIft1l45gcbytBUURCLPe1Q/edit" target="_blank" class="feedback-link">
+            <button id="feedback-button">Provide Feedback</button>
+        </a>
     </div>
     
     <div class="github" style="position: fixed; bottom: 20px; left: 20px;">
